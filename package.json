@@ -1,0 +1,50 @@
+{
+  "name": "react-sticky-scrollspy-nav",
+  "version": "0.1.0",
+  "description": "sticky scrollspy navigation using react hooks.",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rm -rf ./dist && tsc",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huurray/react-sticky-scrollspy-nav.git"
+  },
+  "peerDependencies": {
+    "react": "^15.5.4 || ^16.0.0 || ^17.0.0",
+    "react-dom": "^15.5.4 || ^16.0.0 || ^17.0.0"
+  },
+  "keywords": [
+    "react",
+    "sticky",
+    "scrollspy",
+    "nav",
+    "react-scrollspy",
+    "react-navigation",
+    "react-component",
+    "react-components",
+    "reactjs-component",
+    "react-scroll",
+    "reactjs-es6",
+    "reactjs-with-es6",
+    "react-animate-on-scroll",
+    "react-scroll-to-component",
+    "react-scrollspy-nav"
+  ],
+  "author": "huurray <huurray@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/huurray/react-sticky-scrollspy-nav/issues"
+  },
+  "homepage": "https://github.com/huurray/react-sticky-scrollspy-nav#readme",
+  "devDependencies": {
+    "@types/react": "^17.0.29",
+    "@types/react-dom": "^17.0.9",
+    "typescript": "^4.4.4"
+  }
+}
