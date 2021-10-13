@@ -1,5 +1,8 @@
 # react-sticky-scrollspy-nav
 
+[![npm](https://img.shields.io/npm/v/react-sticky-scrollspy-nav.svg)](https://www.npmjs.com/package/react-sticky-scrollspy-nav)
+[![npm](https://img.shields.io/npm/dt/react-sticky-scrollspy-nav.svg)](https://www.npmjs.com/package/react-sticky-scrollspy-nav)
+
 `react-sticky-scrollspy-nav` is a React component that provides smooth scrolling navigation with sections to a web page.
 
 ## How to install
@@ -18,14 +21,13 @@ yarn add react-sticky-scrollspy-nav
 
 ## How to use it
 
-- Add `StickyScrollSpyNav` component to your code and add \<section> tags. You need to add `ref={createRef()}` to each section item.
+### Add \<section> tags to `StickyScrollSpyNav` component. You need to add `ref={createRef()}` to each section item.
 
 ```jsx
 import ScrollSpy from "react-scrollspy-navigation";
 ```
 
 ```jsx
-// Last item won't use as ScrollSpy item, but you can place there
 <ScrollSpy>
   <section ref={React.createRef()}>...</section>
   <section ref={React.createRef()}>...</section>
@@ -33,6 +35,51 @@ import ScrollSpy from "react-scrollspy-navigation";
 </ScrollSpy>
 ```
 
+### Add `nav` props to render nav component.
+
+```jsx
+<StickyScrollSpyNav nav={["Nav1", "Nav2", "Nav3"]}>...</StickyScrollSpyNav>
+```
+
+### Example Code.
+
+```jsx
+<StickyScrollSpyNav
+  header={
+    <div>
+      <h1>Header content</h1>
+      <h1>Header content</h1>
+      <h1>Header content</h1>
+    </div>
+  }
+  nav={["Nav1", "Nav2", "Nav3"]}
+  navActiveItemStyle={{ color: "red" }}
+>
+  <section ref={React.createRef()} style={{ height: "70vh", background: "orange" }}>
+    Nav 1 Content
+  </section>
+  <section ref={React.createRef()} style={{ height: "70vh", background: "blue" }}>
+    Nav 2 Content
+  </section>
+  <section ref={React.createRef()} style={{ height: "70vh", background: "green" }}>
+    Nav 3 Content
+  </section>
+</StickyScrollSpyNav>
+```
+
+## Props
+
+Common props you may want to specify include:
+
+| Properties           | PropType          | Description                                     |
+| -------------------- | ----------------- | ----------------------------------------------- |
+| `nav`                | `string[]`        | (**Required**) navigation names with button tag |
+| `header`             | `React.ReactNode` | header component                                |
+| `style`              | `object`          | Customize root style.                           |
+| `navContainerStyle`  | `object`          | Customize navigation container style            |
+| `navItemStyle`       | `object`          | Customize navigation item style                 |
+| `navActiveItemStyle` | `object`          | Customize navigation item style when activated  |
+
 ## License
 
-MIT License. Copyright (c) 2021 Junhyeok Heo(Huurray)
+MIT License. Copyright (c) 2021 Junhyeok Heo (Huurray)

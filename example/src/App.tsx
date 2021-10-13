@@ -7,22 +7,22 @@ function App() {
       <StickyScrollSpyNav
         header={
           <div>
-            <h1>123123</h1>
-            <h1>123123</h1>
-            <h1>123123</h1>
-            <h1>123123</h1>
+            <h1>Header content</h1>
+            <h1>Header content</h1>
+            <h1>Header content</h1>
           </div>
         }
-        nav={["BOX1", "BOX2", "BOX3"]}
+        nav={["Nav1", "Nav2", "Nav3"]}
+        navActiveItemStyle={{ color: "red" }}
       >
-        <section style={{ height: "70vh", background: "orange" }} ref={React.createRef()}>
-          BOX 1 Content
+        <section ref={React.createRef()} style={{ height: "70vh", background: "orange" }}>
+          Nav 1 Content
         </section>
-        <section style={{ height: "70vh", background: "blue" }} ref={React.createRef()}>
-          BOX 2 Content
+        <section ref={React.createRef()} style={{ height: "70vh", background: "blue" }}>
+          Nav 2 Content
         </section>
-        <section style={{ height: "70vh", background: "green" }} ref={React.createRef()}>
-          BOX 3 Content
+        <section ref={React.createRef()} style={{ height: "70vh", background: "green" }}>
+          Nav 3 Content
         </section>
       </StickyScrollSpyNav>
     </div>

@@ -1,17 +1,29 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // lib
 import { throttle } from "./lib/tools";
 
 interface Props {
-  header: React.ReactNode;
   nav: string[];
   children: React.ReactNode[] | any[];
+  // optional
+  header?: React.ReactNode;
   navContainerStyle?: {};
+  navActiveItemStyle?: {};
   navItemStyle?: {};
+  style?: {};
 }
-function StickyScrollSpyNav({ header, nav, children, navContainerStyle, navItemStyle }: Props) {
+function StickyScrollSpyNav({
+  header,
+  nav,
+  children,
+  navContainerStyle,
+  navItemStyle,
+  navActiveItemStyle,
+  style,
+}: Props) {
   const navEl: any = useRef(null);
   const [navHeight, setNavHeight] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const onScroll = throttle(() => {
     const scrollElement = document.scrollingElement || document.documentElement;
@@ -24,16 +36,11 @@ function StickyScrollSpyNav({ header, nav, children, navContainerStyle, navItemS
     const isEnd = scrollTop + outerHeight >= scrollHeight;
 
     if (isNotStart) {
-      firstEl.classList.add("active");
+      setCurrentIndex(0);
     } else if (isEnd) {
-      const lastEl = children[children.length - 1]?.ref?.current;
-      const lastBoforeEl = children[children.length - 2]?.ref?.current;
-      if (lastEl && lastBoforeEl) {
-        lastEl.classList.add("active");
-        lastBoforeEl.classList.remove("active");
-      }
+      setCurrentIndex(children.length - 1);
     } else {
-      children.forEach((el) => {
+      children.forEach((el, index) => {
         const target = el?.ref?.current;
         if (target) {
           const visibleVertical =
@@ -42,9 +49,7 @@ function StickyScrollSpyNav({ header, nav, children, navContainerStyle, navItemS
             scrollElement.scrollTop + navHeight < target.offsetTop + target.offsetHeight;
 
           if (visibleVertical) {
-            target.classList.add("active");
-          } else {
-            target.classList.remove("active");
+            setCurrentIndex(index);
           }
         }
       });
@@ -65,11 +70,15 @@ function StickyScrollSpyNav({ header, nav, children, navContainerStyle, navItemS
   }, [onScroll]);
 
   return (
-    <div>
-      {header}
+    <div style={style}>
+      {header ? header : null}
       <nav ref={navEl} style={{ position: "sticky", top: 0, ...navContainerStyle }}>
-        {nav.map((navName, i) => (
-          <button onClick={() => handleClick(i)} key={`${navName}${i}`} style={navItemStyle}>
+        {nav.map((navName, index) => (
+          <button
+            onClick={() => handleClick(index)}
+            key={`${navName}${index}`}
+            style={currentIndex === index ? navActiveItemStyle : navItemStyle}
+          >
             {navName}
           </button>
         ))}
