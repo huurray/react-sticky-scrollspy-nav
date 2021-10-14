@@ -7,6 +7,8 @@ interface Props {
   children: React.ReactNode[] | any[];
   // optional
   header?: React.ReactNode;
+  onClickNav?: (index: number) => void;
+  offset?: number;
   navContainerStyle?: {};
   navActiveItemStyle?: {};
   navItemStyle?: {};
@@ -16,9 +18,11 @@ function StickyScrollSpyNav({
   header,
   nav,
   children,
+  onClickNav,
   navContainerStyle,
   navItemStyle,
   navActiveItemStyle,
+  offset = 0,
   style,
 }: Props) {
   const navEl: any = useRef(null);
@@ -45,8 +49,8 @@ function StickyScrollSpyNav({
         if (target) {
           const visibleVertical =
             target.offsetTop >= 0 &&
-            scrollElement.scrollTop + navHeight >= target.offsetTop &&
-            scrollElement.scrollTop + navHeight < target.offsetTop + target.offsetHeight;
+            scrollElement.scrollTop + navHeight >= target.offsetTop - offset &&
+            scrollElement.scrollTop + navHeight < target.offsetTop + target.offsetHeight - offset;
 
           if (visibleVertical) {
             setCurrentIndex(index);
@@ -58,7 +62,8 @@ function StickyScrollSpyNav({
 
   const handleClick = (index: number) => {
     const offsetTop = children[index]?.ref?.current.offsetTop || 0;
-    window.scrollTo({ top: offsetTop - navHeight, behavior: "smooth" });
+    window.scrollTo({ top: offsetTop - navHeight - offset, behavior: "smooth" });
+    onClickNav && onClickNav(index);
   };
 
   useEffect(() => {
@@ -72,12 +77,22 @@ function StickyScrollSpyNav({
   return (
     <div style={style}>
       {header ? header : null}
-      <nav ref={navEl} style={{ position: "sticky", top: 0, ...navContainerStyle }}>
+      <nav
+        ref={navEl}
+        style={{
+          position: "sticky",
+          top: offset - 1,
+          backgroundColor: "#fff",
+          ...navContainerStyle,
+        }}
+      >
         {nav.map((navName, index) => (
           <button
             onClick={() => handleClick(index)}
             key={`${navName}${index}`}
-            style={currentIndex === index ? navActiveItemStyle : navItemStyle}
+            style={
+              currentIndex === index ? { ...navItemStyle, ...navActiveItemStyle } : navItemStyle
+            }
           >
             {navName}
           </button>

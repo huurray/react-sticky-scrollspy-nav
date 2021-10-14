@@ -3,7 +3,11 @@
 [![npm](https://img.shields.io/npm/v/react-sticky-scrollspy-nav.svg)](https://www.npmjs.com/package/react-sticky-scrollspy-nav)
 [![npm](https://img.shields.io/npm/dt/react-sticky-scrollspy-nav.svg)](https://www.npmjs.com/package/react-sticky-scrollspy-nav)
 
-`react-sticky-scrollspy-nav` is a React component that provides smooth scrolling navigation with sections to a web page.
+`react-sticky-scrollspy-nav` is a simple react component that provides smooth scrolling navigation with sections to a web page.
+
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/41982439/137305183-113a9183-3bc2-4d12-80cf-6cc6cab184d6.gif" alt="video" width="100%" />
+</div>
 
 ## How to install
 
@@ -21,7 +25,7 @@ yarn add react-sticky-scrollspy-nav
 
 ## How to use it
 
-### Add \<section> tags to `StickyScrollSpyNav` component. You need to add `ref={createRef()}` to each section item.
+1. Add \<section> tags to `StickyScrollSpyNav` component. You need to add `ref={createRef()}` to each section item.
 
 ```jsx
 import ScrollSpy from "react-scrollspy-navigation";
@@ -35,7 +39,7 @@ import ScrollSpy from "react-scrollspy-navigation";
 </ScrollSpy>
 ```
 
-### Add `nav` props to render nav component.
+2.  Add `nav` props to render nav component.
 
 ```jsx
 <StickyScrollSpyNav nav={["Nav1", "Nav2", "Nav3"]}>...</StickyScrollSpyNav>
@@ -71,14 +75,16 @@ import ScrollSpy from "react-scrollspy-navigation";
 
 Common props you may want to specify include:
 
-| Properties           | PropType          | Description                                     |
-| -------------------- | ----------------- | ----------------------------------------------- |
-| `nav`                | `string[]`        | (**Required**) navigation names with button tag |
-| `header`             | `React.ReactNode` | header component                                |
-| `style`              | `object`          | Customize root style.                           |
-| `navContainerStyle`  | `object`          | Customize navigation container style            |
-| `navItemStyle`       | `object`          | Customize navigation item style                 |
-| `navActiveItemStyle` | `object`          | Customize navigation item style when activated  |
+| Properties           | PropType    | Description                                                                                 |
+| -------------------- | ----------- | ------------------------------------------------------------------------------------------- |
+| `nav`                | `string[]`  | (**Required**) navigation names with button tag.                                            |
+| `header`             | `component` | header component.                                                                           |
+| `offset`             | `number`    | offset from top of page.                                                                    |
+| `onClickNav`         | `function`  | handler which clicks navigation item scrolling and focusing section. (has 'index' argument) |
+| `style`              | `object`    | customize root style.                                                                       |
+| `navContainerStyle`  | `object`    | customize navigation container style.                                                       |
+| `navItemStyle`       | `object`    | customize navigation item style.                                                            |
+| `navActiveItemStyle` | `object`    | customize navigation item style when activated.                                             |
 
 ## License
 

@@ -1,6 +1,6 @@
 {
   "name": "react-sticky-scrollspy-nav",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "sticky scrollspy navigation using react hooks.",
   "main": "dist/index.js",
   "publishConfig": {
