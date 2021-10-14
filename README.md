@@ -1,4 +1,4 @@
-# react-sticky-scrollspy-nav
+# :hand:react-sticky-scrollspy-nav
 
 [![npm](https://img.shields.io/npm/v/react-sticky-scrollspy-nav.svg)](https://www.npmjs.com/package/react-sticky-scrollspy-nav)
 [![npm](https://img.shields.io/npm/dt/react-sticky-scrollspy-nav.svg)](https://www.npmjs.com/package/react-sticky-scrollspy-nav)
@@ -45,7 +45,7 @@ import ScrollSpy from "react-scrollspy-navigation";
 <StickyScrollSpyNav nav={["Nav1", "Nav2", "Nav3"]}>...</StickyScrollSpyNav>
 ```
 
-### Example Code.
+### Example Code
 
 ```jsx
 <StickyScrollSpyNav
