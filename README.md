@@ -6,7 +6,7 @@
 `react-sticky-scrollspy-nav` is a simple react component that provides smooth scrolling navigation with sections to a web page.
 
 <div align="center">
-    <img src="https://user-images.githubusercontent.com/41982439/137305183-113a9183-3bc2-4d12-80cf-6cc6cab184d6.gif" alt="video" width="100%" />
+    <img src="https://user-images.githubusercontent.com/41982439/137420085-bc8921ff-064e-44e4-9c1a-d7648d03ce7c.gif" alt="video" width="100%" />
 </div>
 
 ## How to install
