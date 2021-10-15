@@ -28,15 +28,15 @@ yarn add react-sticky-scrollspy-nav
 1. Add \<section> tags to `StickyScrollSpyNav` component. You need to add `ref={createRef()}` to each section item.
 
 ```jsx
-import ScrollSpy from "react-scrollspy-navigation";
+import StickyScrollSpyNav from "react-sticky-scrollspy-nav";
 ```
 
 ```jsx
-<ScrollSpy>
+<StickyScrollSpyNav>
   <section ref={React.createRef()}>...</section>
   <section ref={React.createRef()}>...</section>
   <section ref={React.createRef()}>...</section>
-</ScrollSpy>
+</StickyScrollSpyNav>
 ```
 
 2.  Add `nav` props to render nav component.
